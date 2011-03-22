@@ -63,7 +63,7 @@ function createDatePickerWin() {
 		color:"#fff",
 		backgroundGradient:{
       type:'linear',
-      colors:['#0000ff','#333']
+      colors:['#f000ff','#333']
     },
     font: {fontSize:14},
     borderRadius:5
@@ -115,6 +115,7 @@ function createDatePickerWin() {
      fontFamily:"Helvetica Neue",
      fontSize:14},
 		text: startTime,
+		color:"#fff",
 		right:0,
 		top:0,
 		width:200
@@ -167,7 +168,7 @@ function createDatePickerWin() {
     font: {fontSize:16, fontWeight:'bold'},
     borderRadius:10,
     backgroundImage:'none',
-    backgroundGradient:{ type:'linear', colors:['#0000ff','#333']},
+    backgroundGradient:{ type:'linear', colors:['#f000ff','#333']},
     title:'Done'
 	});
 	
@@ -231,7 +232,7 @@ function createDatePickerWin() {
 		lblStartTime.color = "#000";
 		buttonEnd.backgroundGradient = {
       type:'linear',
-      colors:['#0000ff','#333']
+      colors:['#f000ff','#333']
     };
 		lblEnd.color = "#fff";
 		lblEndTime.color = "#fff";
@@ -241,7 +242,7 @@ function createDatePickerWin() {
 		startOrEnd = 'start';
 		buttonStart.backgroundGradient = {
       type:'linear',
-      colors:['#0000ff','#333']
+      colors:['#f000ff','#333']
     };
 		lblStarts.color = "#fff";
 		lblStartTime.color = "#fff";
