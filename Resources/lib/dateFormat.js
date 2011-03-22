@@ -1,16 +1,21 @@
 /* Ripped from http://blog.stevenlevithan.com/archives/date-time-format
 
 	Steven did an awesome job back in 2007 with this javascript library, the great 
-	thing is that its 100% portable to Titanium codebases! */
+	thing is that its 100% portable to Titanium codebases!  Sorry though bud, I had to 
+	add in some revisions to squelch javascript compiler errors.  It's ok for frameworks like
+	jQuery, Dojo, etc, but Titanium's compiler has to be more picky to prevent code compilation 
+	to native contexts. */
 
 var dateFormat = function () {
 	var	token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZ]|"[^"]*"|'[^']*'/g,
-		timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g,
-		timezoneClip = /[^-+\dA-Z]/g,
+		timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[\-+]\d{4})?)\b/g,
+		timezoneClip = /[^\-+\dA-Z]/g,
 		pad = function (val, len) {
 			val = String(val);
 			len = len || 2;
-			while (val.length < len) val = "0" + val;
+			while (val.length < len) {
+				val = "0" + val; 
+			};
 			return val;
 		};
 
@@ -25,8 +30,10 @@ var dateFormat = function () {
 		}
 
 		// Passing date through Date applies Date.parse, if necessary
-		date = date ? new Date(date) : new Date;
-		if (isNaN(date)) throw SyntaxError("invalid date");
+		date = date ? new Date(date) : new Date();
+		if (isNaN(date)) { 
+			throw SyntaxError("invalid date");
+		};
 
 		mask = String(dF.masks[mask] || mask || dF.masks["default"]);
 
